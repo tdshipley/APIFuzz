@@ -20,5 +20,5 @@ Control options:
 Example usage:
 
 ```bash
-ruby apifuzz.rb -t https://example.com/api/v0/get-product?sku=foo&product=bar
+ruby apifuzz.rb -t "https://example.com/api/v0/get-product?sku=foo&product=bar"
 ```
