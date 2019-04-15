@@ -81,4 +81,11 @@ File.open(filename,"w") do |f|
     f.write(results.to_json)
 end
 
+non_200_response = results.select { |result| result[:http_response_code] != 200}
+
+pp "Done"
+pp ""
+pp "Count requests sent: #{inputs.length}"
+pp "Count excluding 200 OK HTTP code: #{non_200_response.length}"
+
 pp "Results in json file: #{filename}"
