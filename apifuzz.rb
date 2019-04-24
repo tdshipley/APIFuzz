@@ -43,7 +43,7 @@ def make_request(uri)
         return result
     end
     
-    result = {uri: uri, http_response_code: response.code, body: response.body.to_s, api_fuzz_request_error: false}
+    result = {uri: uri, http_response_code: response.code, body: response.body.to_s.force_encoding(Encoding::UTF_8), api_fuzz_request_error: false}
     return result
 end
 
@@ -77,7 +77,7 @@ end
 timestamp = Time.now.strftime("%d-%m-%Y-%H:%M")
 filename = "./#{timestamp}_api_fuzz_result.json"
 
-File.open(filename,"w") do |f|
+File.open(filename, "w") do |f|
     f.write(results.to_json)
 end
 
